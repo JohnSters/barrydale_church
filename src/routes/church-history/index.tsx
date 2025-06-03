@@ -82,9 +82,11 @@ export default component$(() => {
                 }}>
                   Our Founding
                 </h3>
+                <p style={{ margin: '0 0 1rem' }}>
+                  The Barrydale Christian Fellowship was established in 1978 by a small group of believers who were committed to biblical teaching and community outreach. What began as a home Bible study has grown into a vibrant community of faith.
+                </p>
                 <p style={{ margin: '0' }}>
-                  Established in [YEAR], our church was founded by a small group of believers committed to biblical teaching 
-                  and community outreach. What began as a home Bible study has grown into a vibrant community of faith.
+                  Our first church building was constructed in 1982 through the dedicated efforts of our founding members and has since been a beacon of hope in the Barrydale community.
                 </p>
               </div>
               
@@ -145,11 +147,165 @@ export default component$(() => {
                 </div>
               </div>
               
-              <p style={{ fontSize: '1.1rem', margin: '1.5rem 0' }}>
-                Over the years, our church has been blessed to see countless lives transformed by the power of the Gospel. 
-                We've grown from a small gathering to a thriving congregation, but our commitment to biblical truth and 
-                community impact remains unchanged.
-              </p>
+              <div style={{ margin: '3rem 0' }}>
+                <h3 style={{
+                  color: 'var(--primary)',
+                  marginTop: '0',
+                  marginBottom: '2rem',
+                  fontSize: '1.8rem',
+                  textAlign: 'center',
+                  position: 'relative',
+                  paddingBottom: '1rem'
+                }}>
+                  <span style={{
+                    display: 'block',
+                    width: '60px',
+                    height: '4px',
+                    backgroundColor: 'var(--secondary)',
+                    margin: '0 auto 1rem',
+                    borderRadius: '2px'
+                  }}></span>
+                  Our Journey Through Time
+                </h3>
+
+                <div style={{
+                  position: 'relative',
+                  maxWidth: '800px',
+                  margin: '0 auto',
+                  padding: '0 1.5rem'
+                }}>
+                  <div style={{
+                    position: 'absolute',
+                    left: '50%',
+                    width: '4px',
+                    backgroundColor: 'var(--secondary)',
+                    top: '0',
+                    bottom: '0',
+                    transform: 'translateX(-50%)',
+                    borderRadius: '2px'
+                  }}></div>
+                  
+                  {[
+                    {
+                      year: '1988',
+                      title: 'The Vision Begins',
+                      content: 'Vollie Strydom arrives in Barrydale and recognizes the need for an English-speaking church in the community.'
+                    },
+                    {
+                      year: '1989',
+                      title: 'First Service',
+                      content: 'The first service is held on April 9th in the old municipal offices, led by Rev. Charlesworth. A committee is formed with Vollie Strydom as chairman.'
+                    },
+                    {
+                      year: '1989-1997',
+                      title: 'Early Years',
+                      content: 'Monthly services continue, moving to the library hall after the Farmers\' Association relocates. The congregation grows through the dedication of ministers and lay preachers serving voluntarily.'
+                    },
+                    {
+                      year: '1990s',
+                      title: 'Land Donation',
+                      content: 'Handjievol Odendaal donates a plot of land for the church building. Fundraising efforts begin through various community initiatives.'
+                    },
+                    {
+                      year: '1997',
+                      title: 'Dream Realized',
+                      content: 'The church building is completed and officially opened on February 23rd, 1997. The opening ceremony includes recognition of all who contributed to making the dream a reality.'
+                    }
+                  ].map((item, index) => (
+                    <div key={index} class="timeline-item" style={{
+                      position: 'relative',
+                      marginBottom: '3rem',
+                      padding: '0 0 0 3rem'
+                    }}>
+                      <div style={{
+                        position: 'absolute',
+                        left: 'calc(50% - 35px)',
+                        backgroundColor: 'white',
+                        border: '3px solid var(--secondary)',
+                        borderRadius: '50%',
+                        width: '30px',
+                        height: '30px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontWeight: 'bold',
+                        color: 'var(--primary)'
+                      }}>
+                        {index + 1}
+                      </div>
+                      <div style={{
+                        backgroundColor: 'white',
+                        borderRadius: '8px',
+                        padding: '1.5rem',
+                        boxShadow: '0 2px 10px rgba(0,0,0,0.08)'
+                      }}>
+                        <div style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          marginBottom: '0.75rem'
+                        }}>
+                          <span style={{
+                            display: 'inline-block',
+                            width: '12px',
+                            height: '12px',
+                            backgroundColor: 'var(--secondary)',
+                            borderRadius: '50%',
+                            marginRight: '0.75rem',
+                            flexShrink: 0
+                          }}></span>
+                          <h4 style={{
+                            margin: '0',
+                            color: 'var(--primary)',
+                            fontSize: '1.2rem'
+                          }}>
+                            {item.year}: {item.title}
+                          </h4>
+                        </div>
+                        <p style={{ margin: '0', lineHeight: '1.6' }}>{item.content}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{
+                  backgroundColor: 'var(--light)',
+                  padding: '1.5rem',
+                  borderRadius: '8px',
+                  marginTop: '2rem',
+                  borderLeft: '4px solid var(--secondary)'
+                }}>
+                  <h4 style={{
+                    color: 'var(--primary)',
+                    marginTop: '0',
+                    marginBottom: '1rem',
+                    fontSize: '1.3rem'
+                  }}>
+                    Special Thanks
+                  </h4>
+                  <p style={{ margin: '0 0 1rem' }}>
+                    We are eternally grateful to all who contributed to making Barrydale Christian Fellowship a reality, including:
+                  </p>
+                  <ul style={{
+                    paddingLeft: '1.5rem',
+                    margin: '0 0 1rem',
+                    columns: '2',
+                  }}>
+                    <li>Rev. Edward Charlesworth (first minister)</li>
+                    <li>Vollie Strydom (founding chairman)</li>
+                    <li>Mimpie Luden (founding secretary/treasurer)</li>
+                    <li>Mrs Jessie McCarthy (committee member)</li>
+                    <li>Mrs Aalwyn Marais (committee member)</li>
+                    <li>Mrs Anne Smith (committee member)</li>
+                    <li>Shaun Herbert (builder)</li>
+                    <li>Handjievol Odendaal (land donor)</li>
+                    <li>Barend Jones (building materials)</li>
+                    <li>Toni Goetz (fundraising)</li>
+                  </ul>
+                  <p style={{ margin: '0', fontStyle: 'italic' }}>
+                    "May this church serve the need of all English-speaking citizens of Barrydale who have a need for, and a commitment to, the Lord. Praise the Lord."
+                  </p>
+                </div>
+              </div>
             </div>
             
             <div style={{
@@ -165,11 +321,11 @@ export default component$(() => {
                 marginBottom: '1.5rem',
                 fontSize: '1.5rem'
               }}>
-                Explore Our Full History
+                Our Complete Historical Record
               </h3>
               <p style={{ marginBottom: '1.5rem' }}>
-                For a detailed account of our church's journey, including key milestones and God's faithfulness through the years, 
-                download our complete church history document.
+                The full history of Barrydale Christian Fellowship, including detailed accounts of our founding, key leaders, 
+                significant milestones, and testimonies of God's faithfulness is available in our official church history document.
               </p>
               <a
                 href="/downloads/Barrydale-Christian-Fellowship-History.pdf"
