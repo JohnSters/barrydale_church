@@ -12,7 +12,7 @@ export default component$(() => {
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat',
-        minHeight: '300px',
+        minHeight: '400px',
         display: 'flex',
         alignItems: 'center',
         position: 'relative',

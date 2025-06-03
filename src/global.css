@@ -233,20 +233,28 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 12px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 24px;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
   position: relative;
   z-index: 101;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  background-color: white;
 }
 
 .menu-icon {
-  width: 100%;
-  height: 3px;
-  background-color: var(--primary);
+  width: 24px;
+  height: 2px;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -257,17 +265,18 @@ body {
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: var(--primary);
   left: 0;
   transition: all 0.3s ease;
 }
 
 .menu-icon::before {
-  top: -8px;
+  top: -7px;
+  width: 24px;
 }
 
 .menu-icon::after {
-  bottom: -8px;
+  bottom: -7px;
+  width: 24px;
 }
 
 .menu-button.is-active .menu-icon {
@@ -290,17 +299,19 @@ body {
 @media (max-width: 768px) {
   .main-nav {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: 0;
     right: 0;
+    bottom: 0;
     background: white;
-    padding: 1rem 0;
+    padding: 1rem 2rem;
     transform: translateY(-100%);
     opacity: 0;
     transition: all 0.3s ease;
     pointer-events: none;
     z-index: 100;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
   }
   
   .main-nav.is-active {
@@ -311,21 +322,47 @@ body {
   
   .nav-list {
     flex-direction: column;
-    padding: 0 1rem;
+    padding: 0;
+    gap: 0;
   }
   
   .nav-item {
     margin: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f0f0f0;
   }
   
   .nav-link {
     display: block;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
+    color: var(--primary) !important;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--secondary) !important;
+    background-color: rgba(52, 152, 219, 0.05);
+  }
+  
+  .nav-link::after {
+    display: none;
   }
   
   .mobile-menu-toggle {
     display: block;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .menu-button {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 12px 10px;
+  }
+  
+  .menu-button:active {
+    background: rgba(255, 255, 255, 0.3);
   }
 }
 
