@@ -1,42 +1,92 @@
-# Qwik City App ⚡️
+# Barrydale Christian Fellowship
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+Welcome to the official website of Barrydale Christian Fellowship. This website serves as a digital home for our church community, providing information about our services, beliefs, and ministries.
 
----
+## Features
+
+- **Home Page**: Welcome message, service times, and core beliefs
+- **Church History**: Learn about our rich heritage and journey as a church
+- **Statement of Faith**: Explore what we believe as a Christian community
+- **Contact Information**: Get in touch with our church leadership
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or later)
+- npm (v7 or later) or Yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/JohnSters/barrydale-church.git
+   cd barrydale-church
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+To start the development server with hot module replacement:
+
+```bash
+npm run dev
+```
+
+### Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
 
 ## Project Structure
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
-
-Inside your project, you'll see the following directory structure:
-
 ```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
+├── public/           # Static files (images, documents, etc.)
+├── src/
+│   ├── components/   # Reusable UI components
+│   ├── routes/       # Page components and routing
+│   ├── entry.*.tsx   # Entry points for different environments
+│   ├── root.tsx      # Root component
+│   └── global.css    # Global styles
+├── .gitignore
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
+## Deployment
 
-- `src/components`: Recommended directory for components.
+This website is built with Qwik and can be deployed to various platforms:
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
+- **Vercel**: For edge deployment
+- **Netlify**: For edge functions
+- **Cloudflare Pages**: For edge deployment
+- **Static hosting**: Generate static files with `npm run generate`
 
-## Add Integrations and deployment
+## Contributing
 
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+If you'd like to contribute to the website, please fork the repository and create a pull request.
 
-```shell
-npm run qwik add # or `yarn qwik add`
-```
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or support, please contact the church administration.
 
 ## Development
 
