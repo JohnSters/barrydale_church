@@ -190,22 +190,10 @@ export default component$(() => {
                 </h3>
 
                 <div style={{
-                  position: 'relative',
                   maxWidth: '800px',
                   margin: '0 auto',
                   padding: '0 1.5rem'
                 }}>
-                  <div style={{
-                    position: 'absolute',
-                    left: '50%',
-                    width: '4px',
-                    backgroundColor: 'var(--secondary)',
-                    top: '0',
-                    bottom: '0',
-                    transform: 'translateX(-50%)',
-                    borderRadius: '2px'
-                  }}></div>
-                  
                   {[
                     {
                       year: '1988',
@@ -234,56 +222,35 @@ export default component$(() => {
                     }
                   ].map((item, index) => (
                     <div key={index} class="timeline-item" style={{
-                      position: 'relative',
-                      marginBottom: '3rem',
-                      padding: '0 0 0 3rem'
+                      marginBottom: '2rem',
+                      backgroundColor: 'white',
+                      borderRadius: '8px',
+                      padding: '1.5rem',
+                      boxShadow: '0 2px 10px rgba(0,0,0,0.08)'
                     }}>
                       <div style={{
-                        position: 'absolute',
-                        left: 'calc(50% - 35px)',
-                        backgroundColor: 'white',
-                        border: '3px solid var(--secondary)',
-                        borderRadius: '50%',
-                        width: '30px',
-                        height: '30px',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        fontWeight: 'bold',
-                        color: 'var(--primary)'
+                        marginBottom: '0.75rem'
                       }}>
-                        {index + 1}
-                      </div>
-                      <div style={{
-                        backgroundColor: 'white',
-                        borderRadius: '8px',
-                        padding: '1.5rem',
-                        boxShadow: '0 2px 10px rgba(0,0,0,0.08)'
-                      }}>
-                        <div style={{
+                        <h4 style={{
+                          margin: '0',
+                          color: 'var(--primary)',
+                          fontSize: '1.2rem',
                           display: 'flex',
                           alignItems: 'center',
-                          marginBottom: '0.75rem'
+                          gap: '0.5rem'
                         }}>
                           <span style={{
-                            display: 'inline-block',
-                            width: '12px',
-                            height: '12px',
-                            backgroundColor: 'var(--secondary)',
-                            borderRadius: '50%',
-                            marginRight: '0.75rem',
-                            flexShrink: 0
-                          }}></span>
-                          <h4 style={{
-                            margin: '0',
-                            color: 'var(--primary)',
-                            fontSize: '1.2rem'
+                            color: 'var(--secondary)',
+                            fontWeight: 'bold'
                           }}>
-                            {item.year}: {item.title}
-                          </h4>
-                        </div>
-                        <p style={{ margin: '0', lineHeight: '1.6' }}>{item.content}</p>
+                            {item.year}:
+                          </span>
+                          {item.title}
+                        </h4>
                       </div>
+                      <p style={{ margin: '0', lineHeight: '1.6' }}>{item.content}</p>
                     </div>
                   ))}
                 </div>
