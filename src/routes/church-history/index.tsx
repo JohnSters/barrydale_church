@@ -63,7 +63,7 @@ export default component$(() => {
               lineHeight: '1.8'
             }}>
               <p style={{ fontSize: '1.1rem', margin: '0 0 1.5rem' }}>
-                The Barrydale Christian Fellowship has a rich history of serving our community and spreading the Gospel. 
+                The Barrydale Christian Fellowship has a rich history of serving the English-speaking community of Barrydale. 
                 From our humble beginnings to the present day, God has been faithful in guiding our congregation.
               </p>
               
@@ -80,13 +80,34 @@ export default component$(() => {
                   marginBottom: '1rem',
                   fontSize: '1.3rem'
                 }}>
-                  Our Founding
+                  The Beginnings of the Church, from Dream to Reality
                 </h3>
                 <p style={{ margin: '0 0 1rem' }}>
-                  The Barrydale Christian Fellowship was established in 1978 by a small group of believers who were committed to biblical teaching and community outreach. What began as a home Bible study has grown into a vibrant community of faith.
+                  In her speech at the opening of the church on 23rd February 1997, Mrs Anne Smith gave some insight into its beginnings.
                 </p>
-                <p style={{ margin: '0' }}>
-                  Our first church building was constructed in 1982 through the dedicated efforts of our founding members and has since been a beacon of hope in the Barrydale community.
+                <p style={{ fontStyle: 'italic', margin: '0 0 1rem' }}>
+                  "I feel honoured today to share with you the history of this Barrydale church. For me it is a dream come true.
+                </p>
+                <p style={{ margin: '0 0 1rem' }}>
+                  When the Methodist Church in Swellendam split up due to political decisions taken at Conference, out of a once strong congregation, only three members remained. These three, Andries Visser, Stephen Smith and I decided not to withdraw our membership.
+                </p>
+                <p style={{ margin: '0 0 1rem' }}>
+                  For many months we were like lost sheep, depending on the radio and television for a Sunday service. Then Ds Maasdorp came to our assistance and organised a monthly service for the English speaking inhabitants of Barrydale. These services were conducted by a Methodist minister from Worcester, assisted by a few local preachers. The attendance was poor and to our disappointment the services came to an end.
+                </p>
+                <p style={{ margin: '0 0 1rem' }}>
+                  One of the preachers who had helped with the English services in the Dutch Reformed Church invited us to join him and his wife at their next Holy Communion service in Riversdale. For the three of us it was the beginning of a monthly journey. For three years we travelled monthly to Riversdale for Communion. We would return home feeling refreshed and stronger in faith, but the longing for a place of worship nearer home became stronger by the day.
+                </p>
+                <p style={{ margin: '0 0 1rem' }}>
+                  From the day our church in Swellendam foundered on the rocks of politics, I had prayed and begged the Lord to meet us in our need. The Lord answered my prayer, but not in the way I had hoped for.
+                </p>
+                <p style={{ margin: '0 0 1rem' }}>
+                  One day, as we returned home from an outing we saw a bakkie parked near our house. A man stepped out and introduced himself as Vollie Strydom.
+                </p>
+                <p style={{ margin: '0 0 1rem' }}>
+                  Many years have gone by but I still remember his exact words. 'I am trying to meet all the English speaking members of different churches. I want to bring them together for Worship.' This was not what I had asked the Lord to provide. I wanted a Methodist Church! Nevertheless it was good news.
+                </p>
+                <p style={{ margin: '0 0 1rem' }}>
+                  The first person to receive this good news from me was Andries Visser. The second was my good friend the Rev Paul Kluge. He ended his letter to me with, 'Praise be to God Who answered our prayers', and in a joking way he wrote in brackets 'Anne, your group sounds like a real fruit salad!'. I learnt a lesson, that all who truly love God can unite in worship."
                 </p>
               </div>
               
@@ -368,112 +389,7 @@ export default component$(() => {
             </div>
           </div>
           
-          <div style={{
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            padding: '2.5rem',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-          }}>
-            <h2 style={{
-              color: 'var(--primary)',
-              marginTop: '0',
-              marginBottom: '1.5rem',
-              fontSize: '2rem',
-              textAlign: 'center',
-              position: 'relative',
-              paddingBottom: '1rem'
-            }}>
-              <span style={{
-                display: 'block',
-                width: '60px',
-                height: '4px',
-                backgroundColor: 'var(--secondary)',
-                margin: '0 auto 1rem',
-                borderRadius: '2px'
-              }}></span>
-              Our Timeline
-            </h2>
-            
-            <div style={{
-              position: 'relative',
-              paddingLeft: '2rem',
-              margin: '2rem 0',
-              borderLeft: '2px solid var(--secondary)'
-            }}>
-              {[
-                { 
-                  year: '19XX', 
-                  title: 'The Beginning', 
-                  description: 'A small group of believers began meeting in homes for Bible study and prayer.' 
-                },
-                { 
-                  year: '19XX', 
-                  title: 'First Church Building', 
-                  description: 'Our first church building was constructed on [Location].' 
-                },
-                { 
-                  year: '20XX', 
-                  title: 'Expanding Our Reach', 
-                  description: 'We launched our first community outreach programs and saw significant growth in our congregation.' 
-                },
-                { 
-                  year: 'Present', 
-                  title: 'Continuing the Legacy', 
-                  description: 'Today, we continue to serve our community and share the love of Christ with future generations.' 
-                }
-              ].map((event, index) => (
-                <div key={index} class="timeline-item" style={{
-                  position: 'relative',
-                  paddingBottom: '2rem'
-                }}>
-                  <div style={{
-                    position: 'absolute',
-                    left: '-2.5rem',
-                    top: '0',
-                    width: '1.5rem',
-                    height: '1.5rem',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--secondary)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    fontSize: '0.7rem',
-                    fontWeight: 'bold'
-                  }}>
-                    {index + 1}
-                  </div>
-                  <h3 style={{
-                    color: 'var(--primary)',
-                    margin: '0 0 0.5rem',
-                    fontSize: '1.3rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem'
-                  }}>
-                    <span style={{
-                      color: 'var(--secondary)',
-                      fontWeight: 'bold',
-                      marginRight: '0.5rem'
-                    }}>
-                      {event.year}
-                    </span>
-                    {event.title}
-                  </h3>
-                  <p style={{ margin: '0 0 0 4rem' }}>{event.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <p style={{
-              textAlign: 'center',
-              fontStyle: 'italic',
-              color: 'var(--text-light)',
-              margin: '2rem 0 0'
-            }}>
-              "The steadfast love of the LORD never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness." - Lamentations 3:22-23
-            </p>
-          </div>
+
         </div>
       </div>
     </>
