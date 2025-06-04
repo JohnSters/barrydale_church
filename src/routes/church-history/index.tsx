@@ -409,10 +409,15 @@ export default component$(() => {
               </a>
             </div>
           </div>
-          
-
         </div>
       </div>
+
+      {/* Footer */}
+      <footer>
+        <div class="container">
+          <p>© {new Date().getFullYear()} Barrydale Christian Fellowship. All Rights Reserved.</p>
+        </div>
+      </footer>
     </>
   );
 });
