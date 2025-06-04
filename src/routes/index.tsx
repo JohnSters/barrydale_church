@@ -18,7 +18,7 @@ export default component$(() => {
       }}>
         <div class="container">
           <h1>Welcome to Our Church Family</h1>
-          <p>For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life. <br></br>For God did not send His Son into the world to condemn the world, but that the world through Him might be saved.</p>
+          <p>For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life.</p>
           <div class="hero-buttons">
             <a href="/contact" class="btn">Worship With Us This Sunday</a>
             <a href="/contact" class="btn btn-outline">Let's Connect</a>

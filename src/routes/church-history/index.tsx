@@ -289,9 +289,63 @@ export default component$(() => {
                     <li>Barend Jones (building materials)</li>
                     <li>Toni Goetz (fundraising)</li>
                   </ul>
-                  <p style={{ margin: '0', fontStyle: 'italic' }}>
+                  <p style={{ margin: '0 0 1.5rem 0', fontStyle: 'italic' }}>
                     "May this church serve the need of all English-speaking citizens of Barrydale who have a need for, and a commitment to, the Lord. Praise the Lord."
                   </p>
+                </div>
+
+                {/* Image Gallery */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                  gap: '2rem',
+                  marginTop: '2rem'
+                }}>
+                  <div style={{
+                    backgroundColor: 'white',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+                  }}>
+                    <img 
+                      src="/images/church1.jpg" 
+                      alt="Barrydale Christian Fellowship"
+                      style={{
+                        width: '100%',
+                        height: '250px',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                    />
+                    <div style={{ padding: '1rem' }}>
+                      <p style={{ margin: '0.5rem 0 0', color: 'var(--text-light)', fontSize: '0.9rem' }}>
+                        Barrydale Christian Fellowship
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style={{
+                    backgroundColor: 'white',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+                  }}>
+                    <img 
+                      src="/images/church2.jpg" 
+                      alt="Barrydale Christian Fellowship"
+                      style={{
+                        width: '100%',
+                        height: '250px',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                    />
+                    <div style={{ padding: '1rem' }}>
+                      <p style={{ margin: '0.5rem 0 0', color: 'var(--text-light)', fontSize: '0.9rem' }}>
+                        Barrydale Christian Fellowship
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
