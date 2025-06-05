@@ -80,8 +80,7 @@ export default component$(() => {
             <div class="card">
               <div class="card-content">
                 <h3>Bible Study</h3>
-                <p><strong>Time:</strong> Wednesday, 9:30 AM</p>
-                <p><strong>Location:</strong> Church Hall</p>
+                <p><strong>Time:</strong> Wednesday, 9:30 AM (Church Hall)</p>
                 <p>Midweek Bible study and fellowship.</p>
               </div>
             </div>

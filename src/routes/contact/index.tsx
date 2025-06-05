@@ -48,7 +48,8 @@ export default component$(() => {
                   </div>
                   <div class="contact-item">
                     <h3>Email</h3>
-                    <p>Contact us via phone for more information</p>
+                    <p>mumarshall@gmail.com</p>
+                    <p>tinekemomberg@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -65,8 +66,7 @@ export default component$(() => {
                   </div>
                   <div class="service-item">
                     <h3>Bible Study</h3>
-                    <p>Wednesday, 9:30 AM</p>
-                    <p>Church Hall</p>
+                    <p>Wednesday, 9:30 AM (Church Hall)</p>
                   </div>
                   <div class="service-item">
                     <h3>Youth Service</h3>
