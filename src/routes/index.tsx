@@ -6,20 +6,23 @@ export default component$(() => {
     <>
       {/* Hero Section */}
       <section class="hero" style={{
-        background: 'linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.7))',
+        background: 'linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.8))',
         backgroundImage: 'url(/images/cross-on-hill.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat',
-        minHeight: '350px',
+        minHeight: '400px',
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
+        marginBottom: '3rem'
       }}>
         <div class="container">
           <h1>Welcome to Our Church Family</h1>
           <p>For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life.</p>
-          <div class="hero-buttons">
+          <div class="hero-buttons" style={{ marginTop: '1.5rem' }}>
             <a href="/contact" class="btn">Worship With Us This Sunday</a>
             <a href="/contact" class="btn btn-outline">Let's Connect</a>
           </div>
