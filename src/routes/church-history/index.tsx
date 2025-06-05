@@ -1,5 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+// Import images with the correct path
+import ImgChurch1 from '../../../public/images/church1.jpg?jsx';
+import ImgChurch2 from '../../../public/images/church2.jpg?jsx';
 
 export default component$(() => {
   return (
@@ -307,15 +310,9 @@ export default component$(() => {
                     overflow: 'hidden',
                     boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
                   }}>
-                    <img 
-                      src="/images/church1.jpg" 
+                    <ImgChurch1
                       alt="Barrydale Christian Fellowship"
-                      style={{
-                        width: '100%',
-                        height: '250px',
-                        objectFit: 'cover',
-                        display: 'block'
-                      }}
+                      class="church-image"
                     />
                     <div style={{ padding: '1rem' }}>
                       <p style={{ margin: '0.5rem 0 0', color: 'var(--text-light)', fontSize: '0.9rem' }}>
@@ -330,15 +327,9 @@ export default component$(() => {
                     overflow: 'hidden',
                     boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
                   }}>
-                    <img 
-                      src="/images/church2.jpg" 
+                    <ImgChurch2 
                       alt="Barrydale Christian Fellowship"
-                      style={{
-                        width: '100%',
-                        height: '250px',
-                        objectFit: 'cover',
-                        display: 'block'
-                      }}
+                      class="church-image"
                     />
                     <div style={{ padding: '1rem' }}>
                       <p style={{ margin: '0.5rem 0 0', color: 'var(--text-light)', fontSize: '0.9rem' }}>
