@@ -29,53 +29,17 @@ export default component$(() => {
         </div>
       </section>
 
-      <div class="container" style={{ marginBottom: '4rem' }}>
-        <div class="content-section" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <div style={{
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            padding: '2.5rem',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            marginBottom: '3rem'
-          }}>
-            <h2 style={{
-              color: 'var(--primary)',
-              marginTop: '0',
-              marginBottom: '1.5rem',
-              fontSize: '2rem',
-              textAlign: 'center',
-              position: 'relative',
-              paddingBottom: '1rem'
-            }}>
-              <span style={{
-                display: 'block',
-                width: '60px',
-                height: '4px',
-                backgroundColor: 'var(--secondary)',
-                margin: '0 auto 1rem',
-                borderRadius: '2px'
-              }}></span>
-              Our Rich Heritage
-            </h2>
-            
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr',
-              gap: '2rem',
-              lineHeight: '1.8'
-            }}>
-              <p style={{ fontSize: '1.1rem', margin: '0 0 1.5rem' }}>
+      <section class="section" style={{ backgroundColor: 'white' }}>
+        <div class="container">
+          <h2 class="section-title">Our Rich Heritage</h2>
+          <div>
+              <p style={{ marginBottom: '1.5rem' }}>
                 The Barrydale Christian Fellowship has a rich history of serving the English-speaking community of Barrydale. 
                 From our humble beginnings to the present day, God has been faithful in guiding our congregation.
               </p>
               
-              <div style={{
-                backgroundColor: 'var(--light)',
-                padding: '1.5rem',
-                borderRadius: '8px',
-                margin: '1.5rem 0',
-                borderLeft: '4px solid var(--secondary)'
-              }}>
+              <div class="card" style={{ margin: '1.5rem 0', borderLeft: '4px solid var(--secondary)' }}>
+                <div class="card-content">
                 <h3 style={{
                   color: 'var(--primary)',
                   marginTop: '0',
@@ -111,14 +75,10 @@ export default component$(() => {
                 <p style={{ margin: '0 0 1rem' }}>
                   The first person to receive this good news from me was Andries Visser. The second was my good friend the Rev Paul Kluge. He ended his letter to me with, 'Praise be to God Who answered our prayers', and in a joking way he wrote in brackets 'Anne, your group sounds like a real fruit salad!'. I learnt a lesson, that all who truly love God can unite in worship."
                 </p>
+                </div>
               </div>
               
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '2rem',
-                margin: '2rem 0'
-              }}>
+              <div class="cards">
                 <div>
                   <h3 style={{
                     color: 'var(--primary)',
@@ -171,25 +131,7 @@ export default component$(() => {
               </div>
               
               <div style={{ margin: '3rem 0' }}>
-                <h3 style={{
-                  color: 'var(--primary)',
-                  marginTop: '0',
-                  marginBottom: '2rem',
-                  fontSize: '1.8rem',
-                  textAlign: 'center',
-                  position: 'relative',
-                  paddingBottom: '1rem'
-                }}>
-                  <span style={{
-                    display: 'block',
-                    width: '60px',
-                    height: '4px',
-                    backgroundColor: 'var(--secondary)',
-                    margin: '0 auto 1rem',
-                    borderRadius: '2px'
-                  }}></span>
-                  Our Journey Through Time
-                </h3>
+                <h2 class="section-title">Our Journey Through Time</h2>
 
                 <div style={{
                   maxWidth: '800px',
@@ -257,43 +199,39 @@ export default component$(() => {
                   ))}
                 </div>
 
-                <div style={{
-                  backgroundColor: 'var(--light)',
-                  padding: '1.5rem',
-                  borderRadius: '8px',
-                  marginTop: '2rem',
-                  borderLeft: '4px solid var(--secondary)'
-                }}>
-                  <h4 style={{
-                    color: 'var(--primary)',
-                    marginTop: '0',
-                    marginBottom: '1rem',
-                    fontSize: '1.3rem'
-                  }}>
-                    Special Thanks
-                  </h4>
-                  <p style={{ margin: '0 0 1rem' }}>
-                    We are eternally grateful to all who contributed to making Barrydale Christian Fellowship a reality, including:
-                  </p>
-                  <ul style={{
-                    paddingLeft: '1.5rem',
-                    margin: '0 0 1rem',
-                    columns: '2',
-                  }}>
-                    <li>Rev. Edward Charlesworth (first minister)</li>
-                    <li>Vollie Strydom (founding chairman)</li>
-                    <li>Mimpie Luden (founding secretary/treasurer)</li>
-                    <li>Mrs Jessie McCarthy (committee member)</li>
-                    <li>Mrs Aalwyn Marais (committee member)</li>
-                    <li>Mrs Anne Smith (committee member)</li>
-                    <li>Shaun Herbert (builder)</li>
-                    <li>Handjievol Odendaal (land donor)</li>
-                    <li>Barend Jones (building materials)</li>
-                    <li>Toni Goetz (fundraising)</li>
-                  </ul>
-                  <p style={{ margin: '0 0 1.5rem 0', fontStyle: 'italic' }}>
-                    "May this church serve the need of all English-speaking citizens of Barrydale who have a need for, and a commitment to, the Lord. Praise the Lord."
-                  </p>
+                <div class="card" style={{ margin: '2rem 0' }}>
+                  <div class="card-content">
+                    <h4 style={{
+                      color: 'var(--primary)',
+                      marginTop: '0',
+                      marginBottom: '1rem',
+                      fontSize: '1.3rem'
+                    }}>
+                      Special Thanks
+                    </h4>
+                    <p style={{ margin: '0 0 1rem' }}>
+                      We are eternally grateful to all who contributed to making Barrydale Christian Fellowship a reality, including:
+                    </p>
+                    <ul style={{
+                      paddingLeft: '1.5rem',
+                      margin: '0 0 1rem',
+                      columns: '2',
+                    }}>
+                      <li>Rev. Edward Charlesworth (first minister)</li>
+                      <li>Vollie Strydom (founding chairman)</li>
+                      <li>Mimpie Luden (founding secretary/treasurer)</li>
+                      <li>Mrs Jessie McCarthy (committee member)</li>
+                      <li>Mrs Aalwyn Marais (committee member)</li>
+                      <li>Mrs Anne Smith (committee member)</li>
+                      <li>Shaun Herbert (builder)</li>
+                      <li>Handjievol Odendaal (land donor)</li>
+                      <li>Barend Jones (building materials)</li>
+                      <li>Toni Goetz (fundraising)</li>
+                    </ul>
+                    <p style={{ margin: '0 0 1.5rem 0', fontStyle: 'italic' }}>
+                      "May this church serve the need of all English-speaking citizens of Barrydale who have a need for, and a commitment to, the Lord. Praise the Lord."
+                    </p>
+                  </div>
                 </div>
 
                 {/* Image Gallery */}
@@ -348,15 +286,13 @@ export default component$(() => {
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div style={{
-              backgroundColor: 'var(--light)',
-              padding: '2rem',
-              borderRadius: '8px',
-              marginTop: '2rem',
-              textAlign: 'center'
-            }}>
+              
+              <div class="section" style={{
+                backgroundColor: 'var(--light)',
+                textAlign: 'center',
+                marginTop: '4rem',
+                padding: '2rem 0'
+              }}>
               <h3 style={{
                 color: 'var(--primary)',
                 marginTop: '0',
@@ -410,7 +346,7 @@ export default component$(() => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
       <footer>
