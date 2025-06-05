@@ -40,15 +40,15 @@ export default component$(() => {
                 <div class="contact-info">
                   <div class="contact-item">
                     <h3>Address</h3>
-                    <p>123 Church Street<br />Barrydale, 6750<br />South Africa</p>
+                    <p>1 Hellier Street<br />Barrydale, 6750<br />South Africa</p>
                   </div>
                   <div class="contact-item">
                     <h3>Phone</h3>
-                    <p>+27 28 572 1234</p>
+                    <p>076 081 0777</p>
                   </div>
                   <div class="contact-item">
                     <h3>Email</h3>
-                    <p>info@barrydalechurch.org.za</p>
+                    <p>Contact us via phone for more information</p>
                   </div>
                 </div>
               </div>
@@ -60,16 +60,17 @@ export default component$(() => {
                 <h2>Gather With Us</h2>
                 <div class="service-times">
                   <div class="service-item">
-                    <h3>Sunday Morning Service</h3>
-                    <p>10:00 AM - 11:30 AM</p>
+                    <h3>Sunday Service</h3>
+                    <p>10:00 AM - 11:00 AM</p>
                   </div>
                   <div class="service-item">
-                    <h3>Wednesday Bible Study</h3>
-                    <p>7:00 PM - 8:30 PM</p>
+                    <h3>Bible Study</h3>
+                    <p>Wednesday, 9:30 AM</p>
+                    <p>Church Hall</p>
                   </div>
                   <div class="service-item">
-                    <h3>Friday Youth Group</h3>
-                    <p>6:30 PM - 8:30 PM</p>
+                    <h3>Youth Service</h3>
+                    <p>Coming soon - Check back for updates!</p>
                   </div>
                 </div>
               </div>
@@ -84,7 +85,7 @@ export default component$(() => {
           <h2 class="section-title">Find Us</h2>
           <div class="map-container">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.123456789012!2d20.7235833!3d-33.9098889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc123456789abc%3A0x1234567890abcdef!2sBarrydale%20Christian%20Fellowship!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.123456789012!2d20.7235833!3d-33.9098889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc123456789abc%3A0x1234567890abcdef!2s1%20Hellier%20St%2C%20Barrydale%2C%206750!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza" 
               width="100%" 
               height="450" 
               style={{ border: 0 }} 

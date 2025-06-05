@@ -72,7 +72,7 @@ export default component$(() => {
             <div class="card">
               <div class="card-content">
                 <h3>Sunday Service</h3>
-                <p><strong>Time:</strong> 10:00 AM</p>
+                <p><strong>Time:</strong> 10:00 AM - 11:00 AM</p>
                 <p><strong>Location:</strong> Main Sanctuary</p>
                 <p>Join us for worship, prayer, and biblical teaching.</p>
               </div>
@@ -80,17 +80,17 @@ export default component$(() => {
             <div class="card">
               <div class="card-content">
                 <h3>Bible Study</h3>
-                <p><strong>Time:</strong> Wednesday, 7:00 PM</p>
-                <p><strong>Location:</strong> Fellowship Hall</p>
-                <p>Midweek Bible study and prayer meeting.</p>
+                <p><strong>Time:</strong> Wednesday, 9:30 AM</p>
+                <p><strong>Location:</strong> Church Hall</p>
+                <p>Midweek Bible study and fellowship.</p>
               </div>
             </div>
             <div class="card">
               <div class="card-content">
-                <h3>Youth Group</h3>
-                <p><strong>Time:</strong> Friday, 6:30 PM</p>
-                <p><strong>Location:</strong> Youth Center</p>
-                <p>For ages 13-18. Games, worship, and Bible study.</p>
+                <h3>Youth Service</h3>
+                <p><strong>Status:</strong> Coming Soon</p>
+                <p><strong>Details:</strong> Planned for the future</p>
+                <p>Check back for updates on our youth program.</p>
               </div>
             </div>
           </div>
