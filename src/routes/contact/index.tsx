@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
@@ -103,13 +103,41 @@ export default component$(() => {
         <div class="container">
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <h2 class="section-title">We'd Love to Hear From You</h2>
-            <form class="contact-form">
+            <form 
+              class="contact-form"
+              action="https://formspree.io/f/xwpbpayv"
+              method="POST"
+              onSubmit$={async (event) => {
+                const form = event.target as HTMLFormElement;
+                const formData = new FormData(form);
+                
+                try {
+                  const response = await fetch('https://formspree.io/f/xwpbpayv', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                      'Accept': 'application/json'
+                    }
+                  });
+                  
+                  if (response.ok) {
+                    form.reset();
+                    alert('Thank you for your message! We will get back to you soon.');
+                  } else {
+                    throw new Error('Form submission failed');
+                  }
+                } catch (error) {
+                  alert('There was an error sending your message. Please try again later.');
+                  console.error('Form submission error:', error);
+                }
+              }}
+            >
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required />
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Your Email</label>
                 <input type="email" id="email" name="email" required />
               </div>
               <div class="form-group">
