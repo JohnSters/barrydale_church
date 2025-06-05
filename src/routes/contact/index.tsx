@@ -2,6 +2,8 @@ import { component$, useSignal, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
+  const formSubmitted = useSignal(false);
+  const submissionError = useSignal(false);
   return (
     <>
       {/* Hero Section */}
@@ -103,35 +105,55 @@ export default component$(() => {
         <div class="container">
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <h2 class="section-title">We'd Love to Hear From You</h2>
-            <form 
-              class="contact-form"
-              action="https://formspree.io/f/xwpbpayv"
-              method="POST"
-              onSubmit$={async (event) => {
-                const form = event.target as HTMLFormElement;
-                const formData = new FormData(form);
-                
-                try {
-                  const response = await fetch('https://formspree.io/f/xwpbpayv', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                      'Accept': 'application/json'
+            
+            {formSubmitted.value ? (
+              <div class="form-success" style={{ padding: '2rem', backgroundColor: '#e8f5e9', borderRadius: '8px', textAlign: 'center' }}>
+                <h3 style={{ color: '#2e7d32', marginBottom: '1rem' }}>Thank you for your message!</h3>
+                <p>We will get back to you soon.</p>
+              </div>
+            ) : submissionError.value ? (
+              <div class="form-error" style={{ padding: '2rem', backgroundColor: '#ffebee', borderRadius: '8px', textAlign: 'center' }}>
+                <h3 style={{ color: '#c62828', marginBottom: '1rem' }}>Something went wrong</h3>
+                <p>There was an error sending your message. Please try again later.</p>
+                <button 
+                  class="btn" 
+                  style={{ marginTop: '1rem' }} 
+                  onClick$={() => submissionError.value = false}
+                >
+                  Try Again
+                </button>
+              </div>
+            ) : (
+              <form 
+                class="contact-form"
+                action="https://formspree.io/f/xwpbpayv"
+                method="POST"
+                preventdefault:submit
+                onSubmit$={$(async (event) => {
+                  try {
+                    const form = event.target as HTMLFormElement;
+                    const formData = new FormData(form);
+                    
+                    const response = await fetch('https://formspree.io/f/xwpbpayv', {
+                      method: 'POST',
+                      body: formData,
+                      headers: {
+                        'Accept': 'application/json'
+                      }
+                    });
+                    
+                    if (response.ok) {
+                      form.reset();
+                      formSubmitted.value = true;
+                    } else {
+                      submissionError.value = true;
                     }
-                  });
-                  
-                  if (response.ok) {
-                    form.reset();
-                    alert('Thank you for your message! We will get back to you soon.');
-                  } else {
-                    throw new Error('Form submission failed');
+                  } catch (error) {
+                    console.error('Form submission error:', error);
+                    submissionError.value = true;
                   }
-                } catch (error) {
-                  alert('There was an error sending your message. Please try again later.');
-                  console.error('Form submission error:', error);
-                }
-              }}
-            >
+                })}
+              >
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required />
@@ -150,6 +172,7 @@ export default component$(() => {
               </div>
               <button type="submit" class="btn" style={{ width: '100%' }}>Send Message</button>
             </form>
+            )}
           </div>
         </div>
       </section>
@@ -157,7 +180,7 @@ export default component$(() => {
       {/* Footer */}
       <footer>
         <div class="container">
-          <p>© {new Date().getFullYear()} Barrydale Christian Fellowship. All Rights Reserved.</p>
+          <p>© 2025 Barrydale Christian Fellowship. All Rights Reserved.</p>
         </div>
       </footer>
     </>
