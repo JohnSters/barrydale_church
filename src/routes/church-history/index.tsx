@@ -1,5 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import ImgChurch1 from "~/media/images/church1.jpg?jsx";
+import ImgChurch2 from "~/media/images/church2.jpg?jsx";
 
 export default component$(() => {
   return (
@@ -307,8 +309,7 @@ export default component$(() => {
                     overflow: 'hidden',
                     boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
                   }}>
-                    <img 
-                      src="/images/church1.jpg" 
+                    <ImgChurch1 
                       alt="Barrydale Christian Fellowship"
                       style={{
                         width: '100%',
@@ -330,8 +331,7 @@ export default component$(() => {
                     overflow: 'hidden',
                     boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
                   }}>
-                    <img 
-                      src="/images/church2.jpg" 
+                    <ImgChurch2 
                       alt="Barrydale Christian Fellowship"
                       style={{
                         width: '100%',
