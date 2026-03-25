@@ -16,7 +16,7 @@ export const onGet: RequestHandler = async ({ url, send, error }) => {
   }
 
   if (!response.ok) {
-    throw error(response.status, "Upstream file not found");
+    throw error(502, "Upstream file not found");
   }
 
   const filename = fileUrl.split("/").pop()?.split("?")[0] ?? "sermon.mp3";
