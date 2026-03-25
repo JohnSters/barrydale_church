@@ -161,7 +161,10 @@ export default component$(() => {
 
       if (error) {
         console.log("DEBUG::sermons/index", error);
-        errorMessage.value = `Failed to load sermons: ${error.message}`;
+        const isNetworkError = /NetworkError|Failed to fetch/i.test(error.message);
+        errorMessage.value = isNetworkError
+          ? `Failed to load sermons: ${error.message}. Check your PUBLIC_SUPABASE_URL, browser network/privacy blocking, and restart the dev server after any .env changes.`
+          : `Failed to load sermons: ${error.message}`;
       } else {
         sermons.value = data ?? [];
       }

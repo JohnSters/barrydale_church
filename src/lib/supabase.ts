@@ -22,7 +22,26 @@ export type Database = {
   };
 };
 
-const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL as string;
-const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string;
+const supabaseUrl =
+  (
+    (import.meta.env.PUBLIC_SUPABASE_URL as string | undefined) ??
+    (import.meta.env.VITE_SUPABASE_URL as string | undefined)
+  )?.trim() ?? "";
+const supabaseAnonKey =
+  (
+    (import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined) ??
+    (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined)
+  )?.trim() ?? "";
+
+if (
+  !supabaseUrl ||
+  !supabaseAnonKey ||
+  supabaseUrl.includes("your-project-id.supabase.co") ||
+  supabaseAnonKey === "your-public-anon-key"
+) {
+  throw new Error(
+    `Invalid Supabase env configuration. URL: ${supabaseUrl || "(empty)"}; key length: ${supabaseAnonKey.length}. Set PUBLIC_SUPABASE_URL and PUBLIC_SUPABASE_ANON_KEY in .env and restart the dev server.`
+  );
+}
 
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
