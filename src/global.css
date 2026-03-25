@@ -466,7 +466,6 @@ footer {
 /* Church History Page */
 .ch-hero {
   background-attachment: fixed;
-  background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.8)), url("/images/palm-leaves.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -880,6 +879,11 @@ footer {
 
 .sermon-dl-error {
   background: #e74c3c;
+}
+
+.sermon-dl-cancel {
+  background: #e74c3c;
+  cursor: pointer;
 }
 
 .sermon-share-btn {

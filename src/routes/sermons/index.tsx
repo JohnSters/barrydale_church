@@ -1,4 +1,4 @@
-import { component$, $, useSignal, useVisibleTask$, useStore } from "@builder.io/qwik";
+import { component$, $, useSignal, useVisibleTask$, useStore, noSerialize, type NoSerialize } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import type { Sermon } from "~/lib/supabase";
 import { AudioPlayer } from "~/components/audio-player";
@@ -44,17 +44,32 @@ function formatFileSize(bytes: number | null): string {
 const SermonCard = component$((sermon: Sermon) => {
   const shareOpen = useSignal(false);
   const copied = useSignal(false);
-  const dl = useStore({ active: false, percent: 0, error: false });
+  const dlHovered = useSignal(false);
+  const dl = useStore<{ active: boolean; percent: number; error: boolean; controller: NoSerialize<AbortController> | null }>({
+    active: false,
+    percent: 0,
+    error: false,
+    controller: null,
+  });
+
+  const cancelDownload = $(() => {
+    if (dl.controller) {
+      dl.controller.abort();
+      dl.controller = null;
+    }
+  });
 
   const download = $(async () => {
     if (dl.active) return;
     const url = sermon.sermon_mp3_url!;
+    const controller = new AbortController();
     dl.active = true;
     dl.percent = 0;
     dl.error = false;
+    dl.controller = noSerialize(controller);
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { signal: controller.signal });
       const contentLength = response.headers.get("content-length");
       const total = contentLength ? parseInt(contentLength, 10) : 0;
       const reader = response.body!.getReader();
@@ -78,13 +93,19 @@ const SermonCard = component$((sermon: Sermon) => {
       anchor.download = url.split("/").pop() ?? "sermon.mp3";
       anchor.click();
       URL.revokeObjectURL(blobUrl);
-    } catch (err) {
-      console.log("DEBUG::SermonCard download", err);
-      dl.error = true;
-      setTimeout(() => { dl.error = false; }, 3000);
+    } catch (err: unknown) {
+      if (err instanceof Error && err.name === "AbortError") {
+        console.log("DEBUG::SermonCard download", "cancelled by user");
+      } else {
+        console.log("DEBUG::SermonCard download", err);
+        dl.error = true;
+        setTimeout(() => { dl.error = false; }, 3000);
+      }
     } finally {
       dl.active = false;
       dl.percent = 0;
+      dl.controller = null;
+      dlHovered.value = false;
     }
   });
 
@@ -133,12 +154,19 @@ const SermonCard = component$((sermon: Sermon) => {
           <AudioPlayer src={sermon.sermon_mp3_url} />
           <div class="sermon-buttons">
             <button
-              class={`btn sermon-btn sermon-dl-btn ${dl.active ? "sermon-dl-active" : ""} ${dl.error ? "sermon-dl-error" : ""}`}
-              title="Download sermon"
-              onClick$={download}
-              disabled={dl.active}
+              class={`btn sermon-btn sermon-dl-btn ${dl.active ? (dlHovered.value ? "sermon-dl-cancel" : "sermon-dl-active") : ""} ${dl.error ? "sermon-dl-error" : ""}`}
+              title={dl.active ? "Cancel download" : "Download sermon"}
+              onClick$={dl.active ? cancelDownload : download}
+              onMouseEnter$={() => { if (dl.active) dlHovered.value = true; }}
+              onMouseLeave$={() => { dlHovered.value = false; }}
             >
-              {dl.error ? "Failed" : dl.active ? (dl.percent > 0 ? `${dl.percent}%` : "Starting…") : "Download"}
+              {dl.error
+                ? "Failed"
+                : dl.active
+                  ? dlHovered.value
+                    ? "Cancel"
+                    : dl.percent > 0 ? `${dl.percent}%` : "Starting…"
+                  : "Download"}
             </button>
             <div class="share-wrapper">
               <button class="btn sermon-btn sermon-share-btn" title="Share sermon" onClick$={openShare}>
@@ -212,7 +240,7 @@ export default component$(() => {
         class="hero"
         style={{
           background: "linear-gradient(rgba(44, 62, 80, 0.65), rgba(44, 62, 80, 0.75))",
-          backgroundImage: "url(/images/cross-on-hill.png)",
+          backgroundImage: "linear-gradient(rgba(44, 62, 80, 0.65), rgba(44, 62, 80, 0.75)), url(/images/palm-leaves.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

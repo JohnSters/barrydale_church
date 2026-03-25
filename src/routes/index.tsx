@@ -7,7 +7,7 @@ export default component$(() => {
       {/* Hero Section */}
       <section class="hero" style={{
         background: 'linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.7))',
-        backgroundImage: 'url(/images/cross-on-hill.png)',
+        backgroundImage: 'linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.7)), url(/images/cross-on-hill.png)',
         backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat',
         minHeight: '350px',

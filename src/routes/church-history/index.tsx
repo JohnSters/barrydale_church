@@ -27,7 +27,12 @@ const timelineEvents = [
 export default component$(() => {
   return (
     <>
-      <section class="hero ch-hero">
+      <section
+        class="hero ch-hero"
+        style={{
+          backgroundImage: "linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.8)), url(/images/Cup.png)",
+        }}
+      >
         <div class="container ch-hero-inner">
           <h1>Our Church History</h1>
           <p>A Journey of Faith, Community, and God's Faithfulness</p>
