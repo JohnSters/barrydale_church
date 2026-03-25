@@ -1,4 +1,4 @@
-import { component$, $, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, $, useSignal, useVisibleTask$, useStore } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import type { Sermon } from "~/lib/supabase";
 import { AudioPlayer } from "~/components/audio-player";
@@ -44,17 +44,34 @@ function formatFileSize(bytes: number | null): string {
 const SermonCard = component$((sermon: Sermon) => {
   const shareOpen = useSignal(false);
   const copied = useSignal(false);
+  const dl = useStore({ active: false, percent: 0, error: false });
 
-  const download = $(async (event: MouseEvent) => {
+  const download = $(async () => {
+    if (dl.active) return;
     const url = sermon.sermon_mp3_url!;
-    const btn = event.currentTarget as HTMLButtonElement;
-    const originalText = btn.textContent;
-    btn.textContent = "Downloading…";
-    btn.disabled = true;
+    dl.active = true;
+    dl.percent = 0;
+    dl.error = false;
 
     try {
       const response = await fetch(url);
-      const blob = await response.blob();
+      const contentLength = response.headers.get("content-length");
+      const total = contentLength ? parseInt(contentLength, 10) : 0;
+      const reader = response.body!.getReader();
+      const chunks: Uint8Array<ArrayBuffer>[] = [];
+      let received = 0;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        received += value.length;
+        if (total > 0) {
+          dl.percent = Math.round((received / total) * 100);
+        }
+      }
+
+      const blob = new Blob(chunks, { type: "audio/mpeg" });
       const blobUrl = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = blobUrl;
@@ -63,9 +80,11 @@ const SermonCard = component$((sermon: Sermon) => {
       URL.revokeObjectURL(blobUrl);
     } catch (err) {
       console.log("DEBUG::SermonCard download", err);
+      dl.error = true;
+      setTimeout(() => { dl.error = false; }, 3000);
     } finally {
-      btn.textContent = originalText;
-      btn.disabled = false;
+      dl.active = false;
+      dl.percent = 0;
     }
   });
 
@@ -113,8 +132,13 @@ const SermonCard = component$((sermon: Sermon) => {
         <div class="sermon-actions">
           <AudioPlayer src={sermon.sermon_mp3_url} />
           <div class="sermon-buttons">
-            <button class="btn sermon-btn" title="Download sermon" onClick$={download}>
-              Download
+            <button
+              class={`btn sermon-btn sermon-dl-btn ${dl.active ? "sermon-dl-active" : ""} ${dl.error ? "sermon-dl-error" : ""}`}
+              title="Download sermon"
+              onClick$={download}
+              disabled={dl.active}
+            >
+              {dl.error ? "Failed" : dl.active ? (dl.percent > 0 ? `${dl.percent}%` : "Starting…") : "Download"}
             </button>
             <div class="share-wrapper">
               <button class="btn sermon-btn sermon-share-btn" title="Share sermon" onClick$={openShare}>
@@ -133,6 +157,11 @@ const SermonCard = component$((sermon: Sermon) => {
                   <button class="share-option share-copy" onClick$={copyLink}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                     Copy link
+                  </button>
+                  <hr class="share-divider" />
+                  <button class="share-option share-close" onClick$={() => { shareOpen.value = false; }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    Close
                   </button>
                 </div>
               )}

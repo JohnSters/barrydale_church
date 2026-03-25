@@ -466,7 +466,7 @@ footer {
 /* Church History Page */
 .ch-hero {
   background-attachment: fixed;
-  background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.8)), url("/images/worship.jpg");
+  background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.8)), url("/images/palm-leaves.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -867,6 +867,21 @@ footer {
   white-space: nowrap;
 }
 
+.sermon-dl-btn {
+  min-width: 5.5rem;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.sermon-dl-active {
+  background: var(--primary);
+  opacity: 0.85;
+  cursor: default;
+}
+
+.sermon-dl-error {
+  background: #e74c3c;
+}
+
 .sermon-share-btn {
   background: var(--primary);
 }
@@ -926,6 +941,29 @@ footer {
 .share-whatsapp svg { color: #25D366; }
 .share-telegram svg { color: #229ED9; }
 .share-copy svg     { color: var(--text-light); }
+
+.share-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0.25rem 0;
+}
+
+.share-close {
+  color: var(--text-light);
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.share-close svg {
+  width: 14px;
+  height: 14px;
+  color: var(--text-light);
+}
+
+.share-close:hover {
+  background: #f5f5f5;
+  color: var(--text);
+}
 
 @media (max-width: 768px) {
   .sermon-card {
