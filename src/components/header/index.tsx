@@ -7,6 +7,7 @@ export default component$(() => {
 
   const links = [
     { name: 'Home', path: '/' },
+    { name: 'Sermons', path: '/sermons' },
     { name: 'Statement of Faith', path: '/statement-of-faith' },
     { name: 'Church History', path: '/church-history' },
     { name: 'Contact', path: '/contact' },
