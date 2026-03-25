@@ -73,7 +73,7 @@ const SermonCard = component$((sermon: Sermon) => {
       const contentLength = response.headers.get("content-length");
       const total = contentLength ? parseInt(contentLength, 10) : 0;
       const reader = response.body!.getReader();
-      const chunks: Uint8Array<ArrayBuffer>[] = [];
+      const chunks: Uint8Array[] = [];
       let received = 0;
 
       while (true) {
@@ -86,7 +86,7 @@ const SermonCard = component$((sermon: Sermon) => {
         }
       }
 
-      const blob = new Blob(chunks, { type: "audio/mpeg" });
+      const blob = new Blob(chunks as BlobPart[], { type: "audio/mpeg" });
       const blobUrl = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = blobUrl;
