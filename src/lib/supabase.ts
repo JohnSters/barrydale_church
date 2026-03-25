@@ -7,6 +7,7 @@ export type Sermon = {
   sermon_mp3_url: string | null;
   preacher: string | null;
   file_size: number | null;
+  duration: string | null;
 };
 
 export type Database = {

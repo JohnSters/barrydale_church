@@ -28,12 +28,25 @@ function formatDate(dateStr: string | null): string {
   });
 }
 
-function formatDuration(seconds: number): string {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor(seconds % 60);
-  if (h > 0) return `${h}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
-  return `${m}:${s.toString().padStart(2, "0")}`;
+function formatDuration(interval: string | null): string | null {
+  if (!interval) return null;
+  // ISO 8601: PT1H2M3S
+  const iso = interval.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?/);
+  if (iso) {
+    const h = parseInt(iso[1] ?? "0");
+    const m = parseInt(iso[2] ?? "0");
+    const s = Math.floor(parseFloat(iso[3] ?? "0"));
+    if (h > 0) return `${h}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+    return `${m}:${s.toString().padStart(2, "0")}`;
+  }
+  // HH:MM:SS
+  const parts = interval.split(":").map(Number);
+  if (parts.length === 3) {
+    const [h, m, s] = parts;
+    if (h > 0) return `${h}:${m.toString().padStart(2, "0")}:${Math.floor(s).toString().padStart(2, "0")}`;
+    return `${m}:${Math.floor(s).toString().padStart(2, "0")}`;
+  }
+  return interval;
 }
 
 function formatFileSize(bytes: number | null): string {
@@ -44,7 +57,6 @@ function formatFileSize(bytes: number | null): string {
 }
 
 const SermonCard = component$((sermon: Sermon) => {
-  const audioDuration = useSignal(0);
   const shareOpen = useSignal(false);
   const copied = useSignal(false);
 
@@ -91,8 +103,8 @@ const SermonCard = component$((sermon: Sermon) => {
         <span class="sermon-date">{formatDate(sermon.sermon_date)}</span>
         <span class="sermon-preacher">By: {sermon.preacher ?? "Unknown Preacher"}</span>
         <div class="sermon-meta">
-          {audioDuration.value > 0 && (
-            <span class="sermon-duration">⏱ {formatDuration(audioDuration.value)}</span>
+          {formatDuration(sermon.duration) && (
+            <span class="sermon-duration">⏱ {formatDuration(sermon.duration)}</span>
           )}
           {sermon.file_size && (
             <span class="sermon-size">{formatFileSize(sermon.file_size)}</span>
@@ -101,7 +113,7 @@ const SermonCard = component$((sermon: Sermon) => {
       </div>
       {sermon.sermon_mp3_url && (
         <div class="sermon-actions">
-          <AudioPlayer src={sermon.sermon_mp3_url} durationSignal={audioDuration} />
+          <AudioPlayer src={sermon.sermon_mp3_url} />
           <div class="sermon-buttons">
             <button
               class="btn sermon-btn"

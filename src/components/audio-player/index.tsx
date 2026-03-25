@@ -1,8 +1,7 @@
-import { component$, useSignal, $, type Signal } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 
 interface AudioPlayerProps {
   src: string;
-  durationSignal?: Signal<number>;
 }
 
 function formatTime(seconds: number): string {
@@ -12,7 +11,7 @@ function formatTime(seconds: number): string {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
-export const AudioPlayer = component$(({ src, durationSignal }: AudioPlayerProps) => {
+export const AudioPlayer = component$(({ src }: AudioPlayerProps) => {
   const audioRef = useSignal<HTMLAudioElement>();
   const isPlaying = useSignal(false);
   const currentTime = useSignal(0);
@@ -41,7 +40,6 @@ export const AudioPlayer = component$(({ src, durationSignal }: AudioPlayerProps
     const audio = audioRef.value;
     if (!audio) return;
     duration.value = audio.duration;
-    if (durationSignal) durationSignal.value = audio.duration;
   });
 
   const onPlay = $(() => { isPlaying.value = true; });
